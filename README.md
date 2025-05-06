@@ -67,7 +67,11 @@ The data flow begins with incoming requests, proceeds through packet capture, fe
 - AWS WAF Configuration: Five key rules implemented
 ![image](https://github.com/user-attachments/assets/1fdf905a-3c3a-4d5a-bf22-df2a4f9744ff)
 ![image](https://github.com/user-attachments/assets/8939e269-5649-49ab-b2bd-b42b100393fc)
-![Screenshot (65)](https://github.com/user-attachments/assets/7b29f2c5-a1fa-47cc-b25e-58392184a641)
+![Screenshot (65)](https://github.com/user-attachments/assets/db9f8170-b649-49b2-b60f-73be0a276833)
+![Screenshot (66)](https://github.com/user-attachments/assets/71fc0785-85c1-48e7-86f7-fb3b6a2c7dac)
+![Screenshot (67)](https://github.com/user-attachments/assets/d518173a-09ab-4353-89eb-4e0192ccaff3)
+![Screenshot (68)](https://github.com/user-attachments/assets/216bcfb6-fd01-4f79-bb8f-5696c4ef8db7)
+![Screenshot (69)](https://github.com/user-attachments/assets/4a5bebf3-792c-492a-82d3-08fd8cd3b141)
 
 - Lambda Function: For automated IP blocking and traffic management
 ![image](https://github.com/user-attachments/assets/b13ac7cf-85fc-4718-9426-ff5a6d764c1a)
