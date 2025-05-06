@@ -67,11 +67,7 @@ The data flow begins with incoming requests, proceeds through packet capture, fe
 - AWS WAF Configuration: Five key rules implemented
 ![image](https://github.com/user-attachments/assets/1fdf905a-3c3a-4d5a-bf22-df2a4f9744ff)
 ![image](https://github.com/user-attachments/assets/8939e269-5649-49ab-b2bd-b42b100393fc)
-![image](https://github.com/user-attachments/assets/568a4192-e076-4d50-bc9a-bf06f9921bcd)
-![image](https://github.com/user-attachments/assets/7a7f94d3-c3cd-4fec-8c1a-11a4ddbce4ad)
-![image](https://github.com/user-attachments/assets/34a7474f-1fb5-4243-b221-0a54faf2befa)
-![image](https://github.com/user-attachments/assets/fa67b717-2e40-4fb1-9c72-15a520041032)
-![image](https://github.com/user-attachments/assets/1d1c82a1-bd61-4997-866c-0fda28172466)
+![Screenshot (65)](https://github.com/user-attachments/assets/7b29f2c5-a1fa-47cc-b25e-58392184a641)
 
 - Lambda Function: For automated IP blocking and traffic management
 ![image](https://github.com/user-attachments/assets/b13ac7cf-85fc-4718-9426-ff5a6d764c1a)
@@ -160,7 +156,7 @@ This tool is useful for:
 - Prediction Handling:
   - If Prediction == "DDOS": Extracts the source_ip. Adds the IP to an AWS WAF IP Set (blocks it). Logs the IP and TTL in a DynamoDB table (BlockedIPs) for time-based 
   unblocking.
-  - ![image](https://github.com/user-attachments/assets/d97bfc6d-004d-4d3f-bb1a-702916388604)
+  - ![image](https://github.com/user-attachments/assets/500f8736-cace-4562-9117-9413fe1a613b)
   - If Prediction == "BENIGN": Redirects traffic to a specific EC2 instance by updating the ALB listener to point to the target group.
 - AWS Services Used:
   AWS Lambda: Executes the automation logic.
