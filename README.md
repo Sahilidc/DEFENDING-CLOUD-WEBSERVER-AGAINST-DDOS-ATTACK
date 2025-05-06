@@ -107,3 +107,50 @@ The data flow begins with incoming requests, proceeds through packet capture, fe
 - Integration with Kubernetes for improved scalability
 - Model updates with newer datasets
 - Advanced anomaly detection techniques
+
+#### 6. Flow Tracking script
+
+#####  This script is a network flow tracking tool that uses NFStream to extract and record detailed information about network traffic in real-time. Here's an explanation of what it does:
+
+The script monitors network traffic on a specified interface (in this case, "enp0s3") and captures flow information - a flow is a series of related packets between two endpoints.
+For each network flow, it:
+
+Generates a unique Flow ID using the 5-tuple (source IP, destination IP, source port, destination port, protocol)
+Extracts various statistical features about the flow, such as:
+
+- Packet timing information (intervals between packets)
+- Packet size statistics
+- TCP flag counts (ACK, RST, URG, etc.)
+- Flow duration metrics
+- Packet rates and counts
+
+
+The extracted features are compiled into JSON format and:
+Written to a timestamped output file in the "flow_data" directory
+Logged for monitoring purposes
+Printed to the console for real-time visibility
+
+
+This tool is useful for:
+- Network traffic analysis
+- Security monitoring (identifying unusual patterns)
+- Performance tracking
+- Creating datasets for machine learning models that analyze network behavior
+
+###### The script focuses on extracting statistical features that are commonly used in network traffic classification and anomaly detection, particularly useful for identifying various types of network behavior including potential attacks.
+
+#### 7. Attack Script 
+**This is a Python implementation of HULK (HTTP Unbearable Load King), which is a DoS (Denial of Service) attack tool. Here's what it does:**
+
+- The script creates multiple threads (500 by default) that simultaneously send HTTP requests to a target website.
+- Each request:
+- Uses a randomly selected User-Agent to appear as different browsers
+- Adds random parameters to URLs to bypass caching
+- Includes various HTTP headers to make requests look legitimate
+
+*The goal is to exhaust the target server's resources by overwhelming it with a large number of connections, potentially making the website unavailable to legitimate users.
+The script includes a monitoring thread that reports how many requests have been sent during the attack.
+There's an optional "safe" mode that automatically stops the attack if the target server starts returning 500 error codes (indicating server errors).*
+
+###### Important note: This script is labeled for research purposes only. Using such tools against websites without explicit permission is illegal in most jurisdictions and could result in serious legal consequences. DoS attacks disrupt services and can cause significant financial and operational damage to organizations.Important note: This script is labeled for research purposes only. Using such tools against websites without explicit permission is illegal in most jurisdictions and could result in serious legal consequences. DoS attacks disrupt services and can cause significant financial and operational damage to organizations.
+
