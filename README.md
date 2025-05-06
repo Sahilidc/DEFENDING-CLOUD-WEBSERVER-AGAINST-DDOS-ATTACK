@@ -67,6 +67,11 @@ The data flow begins with incoming requests, proceeds through packet capture, fe
 - AWS WAF Configuration: Five key rules implemented
 ![image](https://github.com/user-attachments/assets/1fdf905a-3c3a-4d5a-bf22-df2a4f9744ff)
 ![image](https://github.com/user-attachments/assets/8939e269-5649-49ab-b2bd-b42b100393fc)
+![image](https://github.com/user-attachments/assets/568a4192-e076-4d50-bc9a-bf06f9921bcd)
+![image](https://github.com/user-attachments/assets/7a7f94d3-c3cd-4fec-8c1a-11a4ddbce4ad)
+![image](https://github.com/user-attachments/assets/34a7474f-1fb5-4243-b221-0a54faf2befa)
+![image](https://github.com/user-attachments/assets/fa67b717-2e40-4fb1-9c72-15a520041032)
+![image](https://github.com/user-attachments/assets/1d1c82a1-bd61-4997-866c-0fda28172466)
 
 - Lambda Function: For automated IP blocking and traffic management
 ![image](https://github.com/user-attachments/assets/b13ac7cf-85fc-4718-9426-ff5a6d764c1a)
@@ -108,7 +113,7 @@ The data flow begins with incoming requests, proceeds through packet capture, fe
 - Model updates with newer datasets
 - Advanced anomaly detection techniques using segregation 
 
-#### 6. Flow Tracking script
+#### 6. [Flow Tracking script](http://https://github.com/Sahilidc/DEFENDING-CLOUD-WEBSERVER-AGAINST-DDOS-ATTACK/blob/main/Flow%20Tracking%20Script%20with%20NFStream.py "Flow Tracking script")
 
 #####  This script is a network flow tracking tool that uses NFStream to extract and record detailed information about network traffic in real-time. Here's an explanation of what it does:
 
@@ -139,7 +144,7 @@ This tool is useful for:
 
 ###### The script focuses on extracting statistical features that are commonly used in network traffic classification and anomaly detection, particularly useful for identifying various types of network behavior including potential attacks.
 
-#### 7. Attack Script 
+#### 7. [Attack Script](http://https://github.com/Sahilidc/DEFENDING-CLOUD-WEBSERVER-AGAINST-DDOS-ATTACK/blob/main/hulk2.py "Attack Script") 
 **This is a Python implementation of HULK (HTTP Unbearable Load King), which is a DoS (Denial of Service) attack tool. Here's what it does:**
 
 - The script creates multiple threads (500 by default) that simultaneously send HTTP requests to a target website.
@@ -148,14 +153,15 @@ This tool is useful for:
 - Adds random parameters to URLs to bypass caching
 - Includes various HTTP headers to make requests look legitimate
 
-#### 8. Redirection Script
+#### 8. [Lambda Redirection Script](https://github.com/Sahilidc/DEFENDING-CLOUD-WEBSERVER-AGAINST-DDOS-ATTACK/blob/main/lambda_function.py "Lambda Redirection Script")
 **This AWS Lambda function automates real-time detection and mitigation of DDoS attacks based on traffic predictions from a JSON data source hosted on an EC2 instance. Here's a detailed breakdown of what the script does:**
 - Automates real-time DDoS detection and response using AWS services.
 - Input: Fetches JSON traffic flow data from a public EC2-hosted URL.
 - Prediction Handling:
-  If Prediction == "DDOS": Extracts the source_ip. Adds the IP to an AWS WAF IP Set (blocks it). Logs the IP and TTL in a DynamoDB table (BlockedIPs) for time-based 
+  - If Prediction == "DDOS": Extracts the source_ip. Adds the IP to an AWS WAF IP Set (blocks it). Logs the IP and TTL in a DynamoDB table (BlockedIPs) for time-based 
   unblocking.
-  If Prediction == "BENIGN":Redirects traffic to a specific EC2 instance by updating the ALB listener to point to the target group.
+  - ![image](https://github.com/user-attachments/assets/d97bfc6d-004d-4d3f-bb1a-702916388604)
+  - If Prediction == "BENIGN": Redirects traffic to a specific EC2 instance by updating the ALB listener to point to the target group.
 - AWS Services Used:
   AWS Lambda: Executes the automation logic.
   Amazon WAFv2: Blocks IPs dynamically using IP sets.
