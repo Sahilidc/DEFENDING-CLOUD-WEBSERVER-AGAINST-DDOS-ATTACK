@@ -1,20 +1,16 @@
 # DEFENDING CLOUD WEBSERVER AGAINST DDOS ATTACK: DETECTION, PROTECTION, AND MITIGATION
 #### Executive Summary
 This project presents a comprehensive defense system for cloud-hosted web servers against Distributed Denial of Service (DDoS) attacks. At its core is a lightweight ML-based detection module using Tsetlin Machine classifiers, combined with AWS cloud-native protection services and auto-scaling mitigation. The solution achieves 98.7% detection accuracy with minimal latency and provides interpretable rule-based explanations of threat detection.
+
 #### 1.1 DDoS Attacks Overview
 DDoS attacks aim to disrupt online services by overwhelming target servers with malicious traffic from multiple sources. These attacks can be categorized into three main types:
+- Bandwidth Depletion DDoS
+![image](https://github.com/user-attachments/assets/4ddca5c9-7995-4aa3-ada2-3ef48a372126)
 
-- Volumetric Attacks: Consume available bandwidth through amplification or flooding.
-![image](https://github.com/user-attachments/assets/67c09136-5d22-48a4-b0c3-ae87dff47eb5)
-
-- Application Layer Attacks: Target web page generation processes through expensive HTTP requests.
-![image](https://github.com/user-attachments/assets/25d896eb-f4ea-463d-b453-ccdb7f886ada)
-
-- Protocol Attacks: Exploit weaknesses in layer 3 and 4 of the protocol stack.
-  ![image](https://github.com/user-attachments/assets/db48965b-6c72-47bf-a296-e8eb25020bde)
-
-
+- Resource Depletion DDoS
+![image](https://github.com/user-attachments/assets/3633bf44-9326-45c8-8334-77d84a314eb6)
 These attacks can cause significant financial losses and reputational damage by disrupting the link between organizations and customers.
+
 #### 2.1 Objectives
 
 - Achieve ≥95% accuracy in DDoS attack detection
@@ -41,6 +37,7 @@ The system implements a multi-layered defense:
 The data flow begins with incoming requests, proceeds through packet capture, feature extraction, and classification, with appropriate actions taken based on traffic legitimacy.
 
 #### 3. Implementation Details
+
 ##### 3.1 Packet Capture and Buffering
 
 - Tools: Wireshark with tshark , NFstream for real-time packet capture
