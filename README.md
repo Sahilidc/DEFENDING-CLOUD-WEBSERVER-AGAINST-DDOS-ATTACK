@@ -106,7 +106,7 @@ The data flow begins with incoming requests, proceeds through packet capture, fe
 - Real-time alert analysis for faster response
 - Integration with Kubernetes for improved scalability
 - Model updates with newer datasets
-- Advanced anomaly detection techniques
+- Advanced anomaly detection techniques using segregation 
 
 #### 6. Flow Tracking script
 
@@ -147,6 +147,23 @@ This tool is useful for:
 - Uses a randomly selected User-Agent to appear as different browsers
 - Adds random parameters to URLs to bypass caching
 - Includes various HTTP headers to make requests look legitimate
+
+#### 8. Redirection Script
+**This AWS Lambda function automates real-time detection and mitigation of DDoS attacks based on traffic predictions from a JSON data source hosted on an EC2 instance. Here's a detailed breakdown of what the script does:**
+- Automates real-time DDoS detection and response using AWS services.
+- Input: Fetches JSON traffic flow data from a public EC2-hosted URL.
+- Prediction Handling:
+  If Prediction == "DDOS": Extracts the source_ip. Adds the IP to an AWS WAF IP Set (blocks it). Logs the IP and TTL in a DynamoDB table (BlockedIPs) for time-based 
+  unblocking.
+  If Prediction == "BENIGN":Redirects traffic to a specific EC2 instance by updating the ALB listener to point to the target group.
+- AWS Services Used:
+  AWS Lambda: Executes the automation logic.
+  Amazon WAFv2: Blocks IPs dynamically using IP sets.
+  Amazon DynamoDB: Stores blocked IPs with TTL for automatic expiration.
+  Elastic Load Balancer (ALB): Forwards/redirects traffic to EC2 instances.
+- Error Handling: Logs all exceptions and handles empty or invalid JSON gracefully.
+- Customizable Parameters: WAF ACL name/ID, IP set name/ID, ALB ARN, target group ARN, EC2 JSON URL, and block duration.
+- Logging: Uses Python’s logging module to log key actions and issues.
 
 *The goal is to exhaust the target server's resources by overwhelming it with a large number of connections, potentially making the website unavailable to legitimate users.
 The script includes a monitoring thread that reports how many requests have been sent during the attack.
