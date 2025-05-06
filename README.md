@@ -5,10 +5,14 @@ This project presents a comprehensive defense system for cloud-hosted web server
 DDoS attacks aim to disrupt online services by overwhelming target servers with malicious traffic from multiple sources. These attacks can be categorized into three main types:
 
 - Volumetric Attacks: Consume available bandwidth through amplification or flooding.
-[INSERT FIGURE: Fig 1.1 Volumetric Attack Example - showing DNS amplification attack]
-- Application Layer Attacks: Target web page generation processes through expensive HTTP requests. [INSERT FIGURE: Fig 1.2 Application Layer Attack Example - showing HTTP GET flood]
+![image](https://github.com/user-attachments/assets/67c09136-5d22-48a4-b0c3-ae87dff47eb5)
+
+- Application Layer Attacks: Target web page generation processes through expensive HTTP requests.
+![image](https://github.com/user-attachments/assets/25d896eb-f4ea-463d-b453-ccdb7f886ada)
+
 - Protocol Attacks: Exploit weaknesses in layer 3 and 4 of the protocol stack.
--[INSERT FIGURE: Fig 1.3 Protocol Attack Example - showing SYN flood mechanism]
+  ![image](https://github.com/user-attachments/assets/db48965b-6c72-47bf-a296-e8eb25020bde)
+
 
 These attacks can cause significant financial losses and reputational damage by disrupting the link between organizations and customers.
 #### 2.1 Objectives
@@ -21,7 +25,8 @@ These attacks can cause significant financial losses and reputational damage by 
 - Provide interpretable detection decisions
 
 #### 2.2 System Architecture
-[INSERT FIGURE: Fig 5.1 Architecture Diagram - showing the complete system design]
+![image](https://github.com/user-attachments/assets/660399b3-e15f-449e-8575-450de9e47adc)
+
 The system implements a multi-layered defense:
 
 - ML-based Detection Module: Analyzes incoming traffic to identify potential DDoS threats
@@ -31,7 +36,8 @@ The system implements a multi-layered defense:
 - Mitigation Strategy: Employs AWS services for traffic management
 
 #### 2.3 Data Flow
-[INSERT FIGURE: Fig 5.2 Data Flow Diagram - showing data movement through the system]
+![image](https://github.com/user-attachments/assets/8d197e82-3c09-470a-920b-5692ad56927b)
+
 The data flow begins with incoming requests, proceeds through packet capture, feature extraction, and classification, with appropriate actions taken based on traffic legitimacy.
 
 #### 3. Implementation Details
@@ -52,14 +58,20 @@ The data flow begins with incoming requests, proceeds through packet capture, fe
 - Backend: FastAPI application for real-time inference
 - Efficiency: Lazy loading to reduce memory overhead
 - Performance: Batch processing with asyncio and ThreadPoolExecutor
+![image](https://github.com/user-attachments/assets/8742dac6-a2d3-4ac0-be0d-a99784fd7d48)
+
 - Deployment: AWS EC2 instance within a VPC
 
 ##### 3.4 Defense Mechanism (AWS-based Rules)
 
 - AWS WAF Configuration: Five key rules implemented
-- [INSERT FIGURE: Fig 6.1 AWS WAF Rules - showing the configured rules]
+![image](https://github.com/user-attachments/assets/1fdf905a-3c3a-4d5a-bf22-df2a4f9744ff)
+![image](https://github.com/user-attachments/assets/8939e269-5649-49ab-b2bd-b42b100393fc)
+
 - Lambda Function: For automated IP blocking and traffic management
-- [INSERT FIGURE: Fig 6.2 Lambda Function Algorithm - showing the decision flow]
+![image](https://github.com/user-attachments/assets/b13ac7cf-85fc-4718-9426-ff5a6d764c1a)
+
+![image](https://github.com/user-attachments/assets/2f62eae3-e638-4c81-b257-2718dff677e9)
 
 ##### 3.5 Mitigation Strategies
 
