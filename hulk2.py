@@ -1,13 +1,3 @@
-# ----------------------------------------------------------------------------------------------
-# HULK - HTTP Unbearable Load King (Python 3 Version)
-#
-# This tool is a DoS tool that is meant to put heavy load on HTTP servers in order to bring them
-# to their knees by exhausting the resource pool. It is meant for research purposes only,
-# and any malicious usage of this tool is prohibited.
-#
-# Author: OpIcarus (Converted for Python 3 by ChatGPT)
-# ----------------------------------------------------------------------------------------------
-
 import urllib.request
 import sys
 import threading
